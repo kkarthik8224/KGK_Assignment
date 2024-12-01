@@ -1,0 +1,21 @@
+{
+  "name": "kgk_assignment",
+  "version": "1.0.0",
+  "description": "KGK Assignment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "test"
+  },
+  "author": "karthik",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.5",
+    "node-cron": "^3.0.3",
+    "sequelize": "^6.37.5",
+    "uuid": "^11.0.3"
+  }
+}

@@ -1,0 +1,41 @@
+User Login API:
+
+curl --location 'http://localhost:3000/user/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+
+    "email":"kkathik@gmail.com",
+    "password":"Hello@321"
+
+}'
+
+This will a jwt in response, which has to be used as authorisation header in all calls to resources
+
+Create Resource:
+
+curl --location 'http://localhost:3000/api/resources' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzMDQ3NDUxLCJleHAiOjE3MzMwNTEwNTF9.2-Bp7AGfJY-voQO50inTIGEh4J7AdZowAwb1SYCqUS8' \
+--header 'Content-Type: application/json' \
+--data '{
+
+    "resource_url":"www.google.com",
+    "expiration_time": "2024-12-20 13:23:44"
+}'
+
+Get all resources: Will get maximum of 5 resources by default:
+
+curl --location --request GET 'http://localhost:3000/api/resources' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzMDQ3NDUxLCJleHAiOjE3MzMwNTEwNTF9.2-Bp7AGfJY-voQO50inTIGEh4J7AdZowAwb1SYCqUS8' \
+--header 'Content-Type: application/json' 
+
+Get one resource based on access token generated:
+
+curl --location --request GET 'http://localhost:3000/api/resources/:id?token=9a79a8ba-8843-4dab-8fae-0ad16135234c' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzMDQ3NDUxLCJleHAiOjE3MzMwNTEwNTF9.2-Bp7AGfJY-voQO50inTIGEh4J7AdZowAwb1SYCqUS8' \
+--header 'Content-Type: application/json'
+
+Delete one resource based on access token generated:
+
+curl --location --request DELETE 'http://localhost:3000/api/resources/:id?token=9a79a8ba-8843-4dab-8fae-0ad16135234c' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzMDQ3NDUxLCJleHAiOjE3MzMwNTEwNTF9.2-Bp7AGfJY-voQO50inTIGEh4J7AdZowAwb1SYCqUS8' \
+--header 'Content-Type: application/json'
